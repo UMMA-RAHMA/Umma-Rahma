@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://umma-rahma.github.io/Umma-Rahma/sitemap.xml
