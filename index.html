@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- ✅ CSS EXTERNE -->
     <link rel="stylesheet" href="styles.css">
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
 
@@ -599,6 +600,7 @@
                             <label for="message">Message *</label>
                             <textarea id="message" name="message" required placeholder="Écrivez votre message ici..."></textarea>
                         </div>
+                            <div class="g-recaptcha" data-sitekey="6LcslYctAAAAAE9Md0Ze5-y--iI2TgnQpnLM8B3_" style="margin-bottom:15px;"></div>
                         <button type="submit" class="form-submit" id="submitBtn">
                             <i class="fas fa-paper-plane"></i> Envoyer le message
                         </button>
@@ -654,6 +656,13 @@
     <script>
     function handleFormSubmit(e) {
         e.preventDefault();
+            // --- VÉRIFICATION reCAPTCHA ---
+    if (typeof grecaptcha !== 'undefined') {
+        if (grecaptcha.getResponse().length === 0) {
+            alert("⚠️ Veuillez cocher « Je ne suis pas un robot » avant d'envoyer.");
+            return;
+        }
+    }
         const form = e.target;
         const btn = document.getElementById('submitBtn');
         const successMsg = document.getElementById('formSuccess');
@@ -697,15 +706,18 @@
                 successMsg.style.display = 'block';
             } else throw new Error('Erreur');
         })
-        .catch(() => {
-            const name = form.name.value;
-            const sujet = form.sujet.value;
-            const msg = form.message.value;
-            window.location.href = `mailto:rahmaoumma26@gmail.com?subject=${encodeURIComponent('Contact Site: ' + sujet)}&body=${encodeURIComponent('De: ' + name + '\nTél: ' + phoneInput.value + '\n' + msg)}`;
-            btn.innerHTML = originalText;
-            btn.disabled = false;
-        });
-    }
+           .catch(() => {
+        // ✅ Ajout pour réinitialiser le reCAPTCHA en cas d'erreur
+        if (typeof grecaptcha !== 'undefined') grecaptcha.reset();
+
+        // Fallback local (votre code existant, ne rien changer en dessous)
+        const name = form.name.value;
+        const sujet = form.sujet.value;
+        const msg = form.message.value;
+        window.location.href = `mailto:rahmaoumma26@gmail.com?subject=${encodeURIComponent('Contact Site: ' + sujet)}&body=${encodeURIComponent('De: ' + name + '\nTél: ' + phoneInput.value + '\n' + msg)}`;
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+    });
 
     // Navigation mobile
     const hamburger = document.getElementById('hamburger');
