@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- Page d'accueil (priorité maximale) -->
+  <url>
+    <loc>https://umma-rahma.github.io/Umma-Rahma/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Section Association -->
+  <url>
+    <loc>https://umma-rahma.github.io/Umma-Rahma/#association</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Section Règlement Intérieur -->
+  <url>
+    <loc>https://umma-rahma.github.io/Umma-Rahma/#reglement</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Section Membres -->
+  <url>
+    <loc>https://umma-rahma.github.io/Umma-Rahma/#membres</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Section Organisation -->
+  <url>
+    <loc>https://umma-rahma.github.io/Umma-Rahma/#organisation</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Section PASSET (programme principal) -->
+  <url>
+    <loc>https://umma-rahma.github.io/Umma-Rahma/#passet</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Section Financement/Don -->
+  <url>
+    <loc>https://umma-rahma.github.io/Umma-Rahma/#financement</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Section Actualités -->
+  <url>
+    <loc>https://umma-rahma.github.io/Umma-Rahma/#actualites</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Section Contact -->
+  <url>
+    <loc>https://umma-rahma.github.io/Umma-Rahma/#contact</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>
