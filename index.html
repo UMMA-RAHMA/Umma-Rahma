@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- ✅ CSS EXTERNE -->
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.formsubmit.co/ajax.js" defer></script>
         
 </head>
 <body>
@@ -654,63 +655,86 @@
     </footer>
 
     <script>
-    function handleFormSubmit(e) {
-        e.preventDefault();
-        const form = e.target;
-        const btn = document.getElementById('submitBtn');
-        const successMsg = document.getElementById('formSuccess');
-        const originalText = btn.innerHTML;
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = document.getElementById('submitBtn');
+    const successMsg = document.getElementById('formSuccess');
+    const originalText = btn.innerHTML;
 
-        const emailInput = document.getElementById('email');
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(emailInput.value.trim())) {
-            emailInput.style.borderColor = 'red';
-            alert("⚠️ L'adresse email semble incorrecte.\nVeuillez vérifier (ex: nom@gmail.com).");
-            emailInput.focus(); return;
+    // Validation email
+    const emailInput = document.getElementById('email');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(emailInput.value.trim())) {
+        emailInput.style.borderColor = 'red';
+        alert("⚠️ L'adresse email semble incorrecte.\nVeuillez vérifier (ex: nom@gmail.com).");
+        emailInput.focus(); 
+        return;
+    }
+    emailInput.style.borderColor = '#e0e8e1';
+
+    // Validation téléphone (optionnel)
+    const phoneInput = document.getElementById('phone');
+    if (phoneInput.value.trim()) {
+        const phoneValue = phoneInput.value.trim().replace(/[\s\-\(\)]/g, '');
+        const phoneRegex = /^(?:\+221|00221|221)?[7-9]\d{8}$/;
+        if (!phoneRegex.test(phoneValue)) {
+            phoneInput.style.borderColor = 'red';
+            alert("⚠️ Le numéro de téléphone est invalide.\nFormat attendu : +221 7X XXX XX XX ou 7X XXX XX XX");
+            phoneInput.focus(); 
+            return;
         }
-        emailInput.style.borderColor = '#e0e8e1';
+        phoneInput.style.borderColor = '#e0e8e1';
+    }
 
-        const phoneInput = document.getElementById('phone');
-        if (phoneInput.value.trim()) {
-            const phoneValue = phoneInput.value.trim().replace(/[\s\-\(\)]/g, '');
-            const phoneRegex = /^(?:\+221|00221|221)?[7-9]\d{8}$/;
-            if (!phoneRegex.test(phoneValue)) {
-                phoneInput.style.borderColor = 'red';
-                alert("⚠️ Le numéro de téléphone est invalide.\nFormat attendu : +221 7X XXX XX XX ou 7X XXX XX XX");
-                phoneInput.focus(); return;
-            }
-            phoneInput.style.borderColor = '#e0e8e1';
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+    btn.disabled = true;
+
+    const formData = new FormData(form);
+
+    // Envoi via FormSubmit
+    fetch('https://formsubmit.co/ajax/rahmaoumma26@gmail.com', {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
         }
-
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
-        btn.disabled = true;
-
-        const formData = new FormData(form);
-        const actionURL = 'https://formsubmit.co/rahmaoumma26@gmail.com';
-
-        fetch(actionURL, {
-            method: 'POST',
-            body: formData,
-            headers: { 'Accept': 'application/json' }
-        })
-        .then(res => {
-            if (res.ok) {
-                form.style.display = 'none';
-                successMsg.style.display = 'block';
-            } else throw new Error('Erreur');
-        })
-           .catch(() => {
-        // ✅ Ajout pour réinitialiser le reCAPTCHA en cas d'erreur
-        if (typeof grecaptcha !== 'undefined') grecaptcha.reset();
-
-        // Fallback local (votre code existant, ne rien changer en dessous)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.success === "true" || data.success === true) {
+            form.style.display = 'none';
+            successMsg.style.display = 'block';
+            form.reset();
+        } else {
+            throw new Error(data.message || 'Erreur lors de l\'envoi');
+        }
+    })
+    .catch(error => {
+        console.error('Erreur:', error);
+        
+        // Fallback : ouvrir le client email
         const name = form.name.value;
+        const email = form.email.value;
         const sujet = form.sujet.value;
+        const telephone = form.telephone.value;
         const msg = form.message.value;
-        window.location.href = `mailto:rahmaoumma26@gmail.com?subject=${encodeURIComponent('Contact Site: ' + sujet)}&body=${encodeURIComponent('De: ' + name + '\nTél: ' + phoneInput.value + '\n' + msg)}`;
+        
+        const mailtoLink = `mailto:rahmaoumma26@gmail.com?subject=${encodeURIComponent('Contact Site: ' + sujet)}&body=${encodeURIComponent('Nom: ' + name + '\nEmail: ' + email + '\nTéléphone: ' + telephone + '\n\nMessage:\n' + msg)}`;
+        
+        window.location.href = mailtoLink;
+        
         btn.innerHTML = originalText;
         btn.disabled = false;
+        
+        alert("⚠️ L'envoi automatique a échoué.\nVotre application email va s'ouvrir pour envoyer le message manuellement.");
     });
+}
 
     // Navigation mobile
     const hamburger = document.getElementById('hamburger');
