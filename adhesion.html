@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devenir Membre – Oumma Rahma | Joal, Sénégal</title>
+    <meta name="description" content="Rejoignez l'association Oumma Rahma et participez à notre mission d'aide aux enfants talibés de Joal. Adhésion simple et cotisation mensuelle accessible.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      .adhesion-hero {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
+    padding: 120px 20px 60px;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+.adhesion-hero {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
+    padding: 120px 20px 60px;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+        .adhesion-hero h1 {
+            font-family: 'Amiri', serif;
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .adhesion-hero h1 span {
+            color: var(--yellow-light);
+        }
+
+        .adhesion-hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .step-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px 25px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--green-pale);
+            transition: var(--transition);
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--yellow);
+            color: var(--green-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin: 0 auto 20px;
+            font-family: 'Amiri', serif;
+        }
+
+        .step-card h3 {
+            font-family: 'Amiri', serif;
+            font-size: 1.3rem;
+            color: var(--green-dark);
+            margin-bottom: 12px;
+        }
+
+        .step-card p {
+            color: var(--text-mid);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .step-price {
+            display: inline-block;
+            background: var(--green-bg);
+            color: var(--green-dark);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .step-price.monthly {
+            background: var(--yellow);
+        }
+
+        .step-price small {
+            font-weight: 500;
+            font-size: 0.75rem;
+        }
+
+        .payment-section {
+            background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+            padding: 60px 20px;
+            color: white;
+        }
+
+        .payment-box {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: var(--radius);
+            padding: 35px;
+            text-align: center;
+        }
+
+        .payment-box h3 {
+            font-family: 'Amiri', serif;
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        .payment-box p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .payment-options {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .adhesion-form {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--green-pale);
+        }
+
+        .info-banner {
+            background: #fff3cd;
+            border-left: 4px solid var(--yellow-dark);
+            padding: 15px 20px;
+            border-radius: var(--radius-sm);
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+            color: #856404;
+        }
+
+        .info-banner i {
+            margin-right: 8px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            color: var(--yellow-light);
+        }
+
+        .cotisation-info {
+            background: var(--green-bg);
+            border-left: 4px solid var(--green-mid);
+            padding: 20px 25px;
+            border-radius: var(--radius-sm);
+            margin-top: 30px;
+        }
+
+        .cotisation-info h4 {
+            color: var(--green-dark);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .cotisation-info p {
+            color: var(--text-mid);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .adhesion-hero h1 { font-size: 2rem; }
+            .adhesion-form { padding: 25px; }
+            .payment-options { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/logo-oumma-rahma.png" alt="Oumma Rahma" class="hero-logo-2">
+                <div class="nav-logo-text">Umma <span>Rahma</span></div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="index.html#association">Association</a></li>
+                <li><a href="index.html#membres">Membres</a></li>
+                <li><a href="index.html#passet">PASSET</a></li>
+                <li><a href="index.html#financement">Financement</a></li>
+                <li><a href="index.html#actualites">Actualités</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="index.html#don" class="nav-donate-btn"><i class="fas fa-heart"></i> Faire un don</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="adhesion-hero">
+        <div class="hero-content">
+            <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour à l'accueil</a>
+            <h1>Devenez <span>Membre</span></h1>
+            <p>Rejoignez la communauté Oumma Rahma et participez activement à notre mission de solidarité envers les enfants talibés de Joal.</p>
+        </div>
+    </section>
+
+    <!-- ÉTAPES D'ADHÉSION -->
+    <section class="section section-white">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag"><i class="fas fa-list-check"></i> Processus d'adhésion</div>
+                <h2 class="section-title">Comment nous rejoindre en 3 étapes</h2>
+                <p class="section-subtitle">Un engagement simple, accessible et solidaire</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Somme d'engagement</h3>
+                    <p>Versez une somme d'engagement <strong>obligatoire</strong> pour officialiser votre adhésion.</p>
+                    <div class="step-price">250 F <small>(une seule fois)</small></div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Formulaire d'adhésion</h3>
+                    <p>Remplissez <strong>obligatoirement</strong> le formulaire ci-dessous avec vos informations.</p>
+                    <div class="step-price"><i class="fas fa-edit"></i> Obligatoire</div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Cotisation mensuelle</h3>
+                    <p>Participez au financement régulier de nos actions chaque mois.</p>
+                    <div class="step-price monthly">1 000 F <small>/ mois</small></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAIEMENT ENGAGEMENT -->
+    <section class="payment-section" id="paiement">
+        <div class="payment-box">
+            <h3><i class="fas fa-credit-card" style="margin-right:10px; color:var(--yellow-light);"></i>Étape 1 : Frais d'engagement</h3>
+            <p>Effectuez votre paiement de <strong>250 F</strong> via Wave, puis remplissez le formulaire ci-dessous.</p>
+            
+            <div class="payment-options">
+                <a href="https://pay.wave.com/m/M_sn_-3jBgdphMdHc/c/sn/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    <i class="fas fa-external-link-alt"></i> Payer 250 F via Wave
+                </a>
+               
+            </div>
+            
+            <p style="font-size:0.85rem; margin-top:20px; opacity:0.8;">
+                <i class="fas fa-info-circle" style="margin-right:5px;"></i>
+    
+            </p>
+        </div>
+    </section>
+
+    <!-- FORMULAIRE GOOGLE FORMS -->
+    <section class="section section-green" id="formulaire">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag"><i class="fas fa-file-signature"></i> Étape 2</div>
+                <h2 class="section-title">Formulaire d'adhésion</h2>
+                <p class="section-subtitle">Après avoir effectué le paiement, remplissez ce formulaire pour finaliser votre adhésion</p>
+            </div>
+
+            <div class="adhesion-form">
+                <div class="info-banner">
+                    <i class="fas fa-info-circle"></i>
+                    <strong>Rappel :</strong> Vous devez avoir payé les frais d'engagement de 250 F avant de soumettre ce formulaire. Votre demande sera validée après vérification du paiement.
+                </div>
+
+                <iframe 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSfDsD3vho_AVLSQgk0JEPNkNYXxbbcnqrMBzN5115n9xOlHCA/viewform?embedded=true" 
+                    width="100%" 
+                    height="1400" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0"
+                    style="border-radius: 8px; border: 1px solid var(--green-pale);">
+                    Chargement du formulaire…
+                </iframe>
+
+                <div style="text-align: center; margin-top: 25px;">
+                    <p style="color: var(--text-light); font-size: 0.9rem;">
+                        <i class="fas fa-info-circle"></i>
+                        Si le formulaire ne s'affiche pas, 
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfDsD3vho_AVLSQgk0JEPNkNYXxbbcnqrMBzN5115n9xOlHCA/viewform" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           style="color: var(--green-mid); font-weight: 600;">
+                            cliquez ici pour l'ouvrir dans un nouvel onglet
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RAPPEL COTISATION -->
+    <section class="section section-white">
+        <div class="container" style="max-width:700px;">
+            <div class="cotisation-info">
+                <h4><i class="fas fa-calendar-alt" style="margin-right:8px;"></i>Rappel sur la cotisation mensuelle</h4>
+                <p>
+                    Une fois votre adhésion validée, vous vous engagez à verser <strong>1 000 F par mois</strong>. 
+                    Cette cotisation permet de financer nos actions sur le terrain : nourriture, soins médicaux, matériel scolaire pour les enfants talibés.
+                    <br><br>
+                    Le paiement se fait chaque mois via <strong>Wave</strong> au numéro de l'association. 
+                   
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Oumma <span>Rahma</span></h3>
+                <p>Association de solidarité pour l'assistance sociale et sanitaire des enfants talibés à Joal, Sénégal.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="index.html#association">Association</a></li>
+                    <li><a href="index.html#passet">PASSET</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>S'impliquer</h4>
+                <ul>
+                    <li><a href="index.html#don">Faire un don</a></li>
+                    <li><a href="adhesion.html">Devenir membre</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+221704776642">+221 70 477 66 42</a></li>
+                    <li><a href="mailto:rahmaoumma26@gmail.com">rahmaoumma26@gmail.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Oumma Rahma. Tous droits réservés.</p>
+            <p class="footer-credit">Site conçu par <a href="https://wa.me/221703447818">Aladji Mansour SAMB</a></p>
+        </div>
+    </footer>
+
+    <!-- Bouton WhatsApp flottant -->
+    <a href="https://wa.me/221704776642?text=Assalamu%20alaykum%20!%20Je%20souhaite%20rejoindre%20Oumma%20Rahma%20%F0%9F%A4%B2"
+       class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Menu hamburger
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => navLinks.classList.remove('open'));
+        });
+
+        // Copie numéro Orange Money
+        function copyOrangeNumber() {
+            const numero = '704776642';
+            const btn = document.getElementById('omBtnAdhesion');
+            const original = btn.innerHTML;
+            function succes() {
+                btn.innerHTML = '<i class="fas fa-check"></i> Numéro copié !';
+                setTimeout(() => { btn.innerHTML = original; }, 2500);
+            }
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(numero).then(succes);
+            } else {
+                window.prompt('Copiez le numéro Orange Money :', numero);
+            }
+        }
+    </script>
+</body>
+</html>
