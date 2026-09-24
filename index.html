@@ -500,10 +500,19 @@
                     </div>
                 </div>
 
-               <!-- Article 2 : Journée de Solidarité & de Cohésion -->
+               
+<!-- Article 2 : Journée de Solidarité & de Cohésion -->
 <div class="article-card">
     <div class="article-image article-image-social">
-        <img src="images/social.jpg" alt="Journée de Solidarité et de Cohésion">
+        <img
+            src="images/social.jpg"
+            alt="Journée de Solidarité et de Cohésion"
+            class="clickable-image"
+            data-full-image="images/social.jpg"
+        >
+        <span class="image-zoom-icon" aria-hidden="true">
+            <i class="fas fa-expand"></i>
+        </span>
     </div>
 
     <div class="article-content">
@@ -902,11 +911,52 @@
 
     renderCalendar();
     </script>
+    <script>
+    const clickableImage = document.querySelector('.clickable-image');
+    const imageModal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const imageModalClose = document.getElementById('imageModalClose');
+
+    function closeImageModal() {
+        imageModal.classList.remove('open');
+        document.body.classList.remove('modal-open');
+        modalImage.src = '';
+    }
+
+    clickableImage.addEventListener('click', () => {
+        modalImage.src = clickableImage.dataset.fullImage;
+        modalImage.alt = clickableImage.alt;
+        imageModal.classList.add('open');
+        document.body.classList.add('modal-open');
+    });
+
+    imageModalClose.addEventListener('click', closeImageModal);
+
+    imageModal.addEventListener('click', (event) => {
+        if (event.target === imageModal) {
+            closeImageModal();
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && imageModal.classList.contains('open')) {
+            closeImageModal();
+        }
+    });
+</script>
         <!-- Bouton WhatsApp flottant -->
     <a href="https://wa.me/221704776642?text=Assalamu%20alaykum%20!%20Je%20souhaite%20aider%20Oumma%20Rahma%20%F0%9F%A4%B2"
        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contactez-nous sur WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
+    <!-- Fenêtre d'affichage de l'image en grand -->
+<div class="image-modal" id="imageModal" role="dialog" aria-modal="true" aria-label="Image agrandie">
+    <button class="image-modal-close" id="imageModalClose" type="button" aria-label="Fermer">
+        <i class="fas fa-times"></i>
+    </button>
+
+    <img id="modalImage" src="" alt="">
+</div>
 </body>
 </body>
 </html>
