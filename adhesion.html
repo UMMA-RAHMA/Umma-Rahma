@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+      <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PC7E6XCJS2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PC7E6XCJS2');
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Devenir Membre – Oumma Rahma | Joal, Sénégal</title>
@@ -434,5 +443,57 @@
             }
         }
     </script>
+    <!-- 1. Script Global Site Tag (gtag.js) - Si pas déjà installé -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VOTRE_ID_ICI"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VOTRE_ID_ICI'); // Remplacez par votre ID réel
+</script>
+
+<!-- 2. Script de suivi des clics (WhatsApp, Tel, Email) -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    // Fonction pour envoyer l'événement à GA4
+    function trackClick(eventName, method) {
+      if (typeof gtag === 'function') {
+        gtag('event', eventName, {
+          'method': method,
+          'value': 'contact_click'
+        });
+      }
+    }
+
+    // A. Boutons WhatsApp (cherche les liens contenant wa.me ou whatsapp)
+    const waButtons = document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]');
+    waButtons.forEach(btn => {
+      btn.addEventListener('click', () => trackClick('whatsapp_click', 'whatsapp'));
+    });
+
+    // B. Boutons Téléphone (cherche les liens commençant par tel:)
+    const phoneButtons = document.querySelectorAll('a[href^="tel:"]');
+    phoneButtons.forEach(btn => {
+      btn.addEventListener('click', () => trackClick('phone_click', 'telephone'));
+    });
+
+    // C. Boutons Email (cherche les liens commençant par mailto:)
+    const emailButtons = document.querySelectorAll('a[href^="mailto:"]');
+    emailButtons.forEach(btn => {
+      btn.addEventListener('click', () => trackClick('email_click', 'email'));
+    });
+  });
+</script>
+```### Étape 3 : Adapter le code à votre site
+
+Le code ci-dessus utilise des sélecteurs "intelligents" qui devraient fonctionner automatiquement si vos liens sont bien faits :
+*   `a[href*="wa.me"]` : détecte tous les liens WhatsApp classiques.
+*   `a[href^="tel:"]` : détecte tous les liens d'appel téléphonique.
+*   `a[href^="mailto:"]` : détecte tous les liens email.
+
+**Si ça ne marche pas**, il faudra cibler la classe CSS exacte de vos boutons. Par exemple, si votre bouton a la classe `.btn-contact`, remplacez la ligne par :
+```javascript
+document.querySelectorAll('.btn-contact').forEach(...)
 </body>
 </html>
