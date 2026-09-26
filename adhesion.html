@@ -485,15 +485,5 @@
     });
   });
 </script>
-```### Étape 3 : Adapter le code à votre site
-
-Le code ci-dessus utilise des sélecteurs "intelligents" qui devraient fonctionner automatiquement si vos liens sont bien faits :
-*   `a[href*="wa.me"]` : détecte tous les liens WhatsApp classiques.
-*   `a[href^="tel:"]` : détecte tous les liens d'appel téléphonique.
-*   `a[href^="mailto:"]` : détecte tous les liens email.
-
-**Si ça ne marche pas**, il faudra cibler la classe CSS exacte de vos boutons. Par exemple, si votre bouton a la classe `.btn-contact`, remplacez la ligne par :
-```javascript
-document.querySelectorAll('.btn-contact').forEach(...)
 </body>
 </html>
