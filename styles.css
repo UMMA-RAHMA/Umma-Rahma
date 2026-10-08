@@ -1631,8 +1631,8 @@ body.modal-open {
 /* La vidéo elle-même */
 .gallery-item.video-container iframe {
   width: 100% !important; /* Le !important force la règle si un autre CSS s'y oppose */
-  height: auto !important;
-  aspect-ratio: 16 / 9; /* Garde le format rectangle parfait sur tous les écrans */
+  height: 100% !important;
+  
   display: block;
   border-radius: 8px; /* Petit plus esthétique : coins arrondis */
 }
