@@ -1620,6 +1620,30 @@ body.modal-open {
         right: 12px;
     }
 }
+/* Conteneur spécifique pour la vidéo */
+.gallery-item.video-container {
+  width: 100%;
+  margin-bottom: 20px;
+  display: block; /* Force l'affichage en bloc */
+  overflow: visible; /* Empêche de couper le contenu */
+}
+
+/* La vidéo elle-même */
+.gallery-item.video-container iframe {
+  width: 100% !important; /* Le !important force la règle si un autre CSS s'y oppose */
+  height: auto !important;
+  aspect-ratio: 16 / 9; /* Garde le format rectangle parfait sur tous les écrans */
+  display: block;
+  border-radius: 8px; /* Petit plus esthétique : coins arrondis */
+}
+
+/* La légende en dessous */
+.gallery-caption {
+  margin-top: 10px;
+  text-align: center;
+  font-style: italic;
+  color: #555; /* Assurez-vous que cette couleur contraste bien avec le fond */
+}
 
 
 
