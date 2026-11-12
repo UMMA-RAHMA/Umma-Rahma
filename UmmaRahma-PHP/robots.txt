@@ -1,0 +1,23 @@
+# robots.txt pour Oumma Rahma
+# https://umma-rahma.github.io/Umma-Rahma/
+
+# Autoriser tous les robots
+User-agent: *
+Allow: /
+
+# Emplacement du sitemap
+Sitemap: https://umma-rahma.github.io/Umma-Rahma/sitemap.xml
+
+# Bloquer les fichiers sensibles
+Disallow: /reglement-interieur.pdf
+Disallow: /*.pdf$
+
+# Autoriser les images (important pour Google Images)
+Allow: /images/
+
+# Bloquer les crawlers agressifs (optionnel)
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
